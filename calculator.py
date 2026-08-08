@@ -1,6 +1,6 @@
 from tkinter import *
 window = Tk()
-window.geometry("1000x1000")
+window.geometry("300x400")
 window.config(bg="#971360")
 entry= Entry(window)
 entry.grid()
