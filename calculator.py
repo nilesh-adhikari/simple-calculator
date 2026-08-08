@@ -1,0 +1,105 @@
+from tkinter import *
+window = Tk()
+window.geometry("1000x1000")
+window.config(bg="#971360")
+entry= Entry(window)
+entry.grid()
+entry.config(width=30)
+
+def press(value):
+    entry.insert(END,value)
+def delall():
+    entry.delete(0,END)
+
+def dellast():
+    entry.delete(len(entry.get())-1,END)
+
+def calc(text):
+    if "+" in text:
+        pos=text.index("+")
+        r= float(text[0:pos]) + float(text[pos+1:])
+        print(r)
+    elif "-" in text:
+        pos=text.index("-")
+        r= float(text[0:pos]) - float(text[pos+1:])
+        print(r)
+    elif"x" in text:
+        pos=text.index("x")
+        r= float(text[0:pos]) * float(text[pos+1:])
+        print(r)
+    elif "/" in text:
+        pos= text.index("/")
+        r= float(text[0:pos]) / float(text[pos+1:])
+        print(r)
+
+
+frame= Frame(window)
+frame.grid()
+
+button00= Button(frame,text="00",command=lambda:press("hehe"))
+button00.grid(row=5,column=0)
+button00.config(width=5,height=3)
+button0= Button(frame, text="0",command=lambda:press(0))
+button0.grid(row=5, column= 1)
+button0.config(width=5,height=3)
+buttonpoint= Button(frame, text=".", command=lambda:press("."))
+buttonpoint.grid(row=5, column=2)
+buttonpoint.config(width=5,height=3)
+button1= Button(frame,text="1", command=lambda:press(1))
+button1.grid(row=4, column=0)
+button1.config(width=5,height=3)
+button2= Button(frame,text="2", command=lambda:press(2))
+button2.grid(row=4, column=1)
+button2.config(width=5,height=3)
+button3= Button(frame, text="3",command=lambda:press(3))
+button3.grid(row=4, column=2)
+button3.config(width=5,height=3)
+button4= Button(frame,text="4",command=lambda:press(4))
+button4.grid(row=3, column=0)
+button4.config(width=5,height=3)
+button5= Button(frame,text="5",command=lambda:press(5))
+button5.grid(row=3, column=1)
+button5.config(width=5,height=3)
+button6= Button(frame,text="6",command=lambda:press(6))
+button6.grid(row=3, column=2)
+button6.config(width=5,height=3)
+button7= Button(frame, text="7",command=lambda:press(7))
+button7.grid(row=2, column=0)
+button7.config(width=5,height=3)
+button8= Button(frame,text="8",command=lambda:press(8))
+button8.grid(row=2, column=1)
+button8.config(width=5,height=3)
+button9= Button(frame,text="9",command=lambda:press(9))
+button9.grid(row=2, column=2)
+button9.config(width=5,height=3)
+addbutton = Button(frame,text="+",command=lambda:press("+"))
+addbutton.grid(row=4, column=3)
+addbutton.config(width=5,height=3)
+subbutton= Button(frame, text="-",command=lambda:press("-"))
+subbutton.grid(row=3, column= 3)
+subbutton.config(width=5,height=3)
+multibutton= Button(frame,text="x",command=lambda:press("x"))
+multibutton.grid(row=2,column=3)
+multibutton.config(width=5,height=3)
+divbutton= Button(frame, text="÷",command=lambda:press("/"))
+divbutton.grid(row=1, column= 3)
+divbutton.config(width=5,height=3)
+ac= Button(frame,text="ac",command= delall)
+ac.grid(row=1, column=0)
+ac.config(width=5,height=3)
+percent= Button(frame, text="%",command=lambda:press("not working yet"))
+percent.grid(row=1,column=1)
+percent.config(width=5,height=3)
+cut=Button(frame,text="del",command=dellast)
+cut.grid(row=1,column=2)
+cut.config(width=5,height=3)
+
+text=entry.get()
+
+result= Button(frame, text="=",command=lambda:calc(entry.get()))
+result.grid(row=5, column=3)
+result.config(width=5,height=3)
+
+
+
+window.mainloop()
