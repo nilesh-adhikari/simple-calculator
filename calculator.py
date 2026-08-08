@@ -1,5 +1,6 @@
 from tkinter import *
 window = Tk()
+window.title("Calculator")
 window.geometry("300x400")
 window.config(bg="#971360")
 entry= Entry(window)
